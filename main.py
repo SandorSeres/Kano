@@ -79,6 +79,19 @@ async def form_get(request: Request, project: str = None):
     })
 
 # --- Beküldés ---
+from google.cloud import storage
+import io
+
+# Inicializáljuk a Storage klienst (GCP service account kulccsal, ha szükséges)
+storage_client = storage.Client()
+BUCKET_NAME = "kano-responses"  # A te bucket-ed neve
+
+def upload_csv_to_gcs(bucket_name, destination_blob_name, file_contents):
+    bucket = storage_client.bucket(bucket_name)
+    blob = bucket.blob(destination_blob_name)
+    blob.upload_from_string(file_contents.getvalue(), content_type="text/csv")
+    print(f"CSV uploaded to gs://{bucket_name}/{destination_blob_name}")
+
 @app.post("/submit", response_class=HTMLResponse)
 async def submit(request: Request):
     form = await request.form()
@@ -98,19 +111,27 @@ async def submit(request: Request):
             answer = form[key]
             answers.append([timestamp, question_id, function_text, qtype, answer])
     
-    # Ha a CSV még nem létezik, hozzuk létre a fejlécet
-    if not os.path.exists(csv_filename):
-        async with write_lock:
-            with open(csv_filename, mode="w", newline="", encoding="utf-8") as f:
-                writer = csv.writer(f)
-                writer.writerow(["Timestamp", "Question_ID", "Function", "Question_Type", "Answer"])
+    # Letöltjük, vagy ha nem létezik, létrehozzuk a CSV tartalmát egy in-memory bufferben
+    csv_buffer = io.StringIO()
+    writer = csv.writer(csv_buffer)
     
-    # Írjuk felül az adatokat a CSV-be a lock segítségével
-    async with write_lock:
-        with open(csv_filename, mode="a", newline="", encoding="utf-8") as f:
-            writer = csv.writer(f)
-            for row in answers:
-                writer.writerow(row)
+    # Ha létezik a file a bucketben, letölthetjük, különben írunk egy fejlécet.
+    bucket = storage_client.bucket(BUCKET_NAME)
+    blob = bucket.blob(csv_filename)
+    if blob.exists():
+        # Letöltjük a korábbi tartalmat
+        existing_data = blob.download_as_text()
+        csv_buffer.write(existing_data)
+        csv_buffer.write("\n")
+    else:
+        writer.writerow(["Timestamp", "Question_ID", "Function", "Question_Type", "Answer"])
+    
+    # Írjuk hozzá az új sorokat
+    for row in answers:
+        writer.writerow(row)
+    
+    # Feltöltjük a módosított CSV-t
+    upload_csv_to_gcs(BUCKET_NAME, csv_filename, csv_buffer)
     
     return RedirectResponse(url="/form?project=" + config_file, status_code=303)
 

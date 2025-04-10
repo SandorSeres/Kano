@@ -1,0 +1,16 @@
+{
+  "name": "kano",
+  "build": {
+    "dockerfile": "Dockerfile",
+    "context": "."
+  },
+  "runArgs": [
+    "--gpus=all",  // GPU hozzáférés engedélyezése
+    "--network=host" // Host hálózat engedélyezése
+  ],
+  "settings": {
+    "terminal.integrated.shell.linux": "/bin/bash"
+  },
+  "remoteUser": "root",
+
+}

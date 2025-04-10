@@ -1,0 +1,103 @@
+project:
+  - Plug & Play A
+questions:
+  - id: 1
+    function: "Plug & Play telepítés"
+    functional_question: "Ha a készülék plug & play módban, azaz azonnal használatra kész, működik, mennyire lenne elégedett?"
+    dysfunctional_question: "Ha a telepítés bonyolult lenne és szakmai segítséget igényelne, mennyire okozna problémát a cégnél?"
+  
+  - id: 2
+    function: "Teljes lokális működés"
+    functional_question: "Ha a rendszer kizárólag helyben, lokálisan fut, így garantálva a bizalmas adatok védelmét, mennyire tartaná ezt előnyösnek?"
+    dysfunctional_question: "Ha az adatfeldolgozás külső (pl. felhős) szerveren történne, mennyire aggódna az adatbiztonság miatt?"
+  
+  - id: 3
+    function: "Magas teljesítményű GPU"
+    functional_question: "Ha a készülék erős GPU-val rendelkezik, amely gyors adatfeldolgozást és válaszidőt biztosít, milyen mértékben tartaná ezt előnyös tulajdonságnak?"
+    dysfunctional_question: "Ha a GPU teljesítménye elmaradna a jelenlegi követelményektől, és lassabb válaszidőt eredményezne, mennyire befolyásolná ez a rendszer használatát?"
+  
+  - id: 4
+    function: "Intelligens adatkeresés a saját adatokból"
+    functional_question: "Ha a rendszer lehetőséget biztosítana arra, hogy a saját adataiból 'kérdezzen' (releváns információkat keressen), mennyire tartaná ezt hasznosnak?"
+    dysfunctional_question: "Ha ez a funkció hiányozna, és nem tudna a saját adataiból releváns információt kinyerni, mennyire érezné hiányosnak a megoldást?"
+  
+  - id: 5
+    function: "Egyszerű, intuitív kezelőfelület"
+    functional_question: "Ha a készülék kezelőfelülete egyszerű és könnyen átlátható, így a nem technikai felhasználók is könnyen beállíthatnák, mennyire lenne elégedett?"
+    dysfunctional_question: "Ha a kezelőfelület bonyolult lenne, és a használata nehézkes, mennyire okozna ez frusztrációt?"
+  
+  - id: 6
+    function: "Adatbiztonság és titoktartás"
+    functional_question: "Ha az eszköz garantálja, hogy a belső adatok helyben maradnak, így nem kerülnek ki a cég bizalmas köréből, mennyire tartaná ezt alapvető elvárásnak?"
+    dysfunctional_question: "Ha a megoldás külső adatfeldolgozást igényelne, és így csökkenne az adatbiztonság, mennyire aggódna az adatok kezelésével kapcsolatban?"
+  
+  - id: 7
+    function: "Minimális technikai karbantartás igény"
+    functional_question: "Ha a készülék használatához nem szükséges technikai szakértelem, és minimális karbantartással jár, mennyire tartaná ezt vonzónak?"
+    dysfunctional_question: "Ha az eszköz folyamatos technikai támogatást vagy rendszeres karbantartást igényelne, mennyire jelentene ez extra erőfeszítést?"
+  
+  - id: 8
+    function: "Gyors válaszidő"
+    functional_question: "Ha a rendszer gyorsan reagál és feldolgozza a kéréseket, mennyire értékelné ezt a tulajdonságot?"
+    dysfunctional_question: "Ha a válaszidő jelentősen lassabb lenne, és ez akadályozná a mindennapi munkát, mennyire lenne elégedetlen?"
+  
+  - id: 9
+    function: "Automatikus frissítések és hibajavítások"
+    functional_question: "Ha a készülék automatikusan frissítéseket és hibajavításokat végez, így mindig naprakész marad, mennyire tartaná ezt előnyös szolgáltatásnak?"
+    dysfunctional_question: "Ha a frissítések és hibajavítások manuálisan történnének, és rendszeresen elmaradnának, mennyire befolyásolná ez a rendszer megbízhatóságát?"
+  
+  - id: 10
+    function: "Testreszabhatóság"
+    functional_question: "Ha a rendszer könnyen testreszabható az egyedi igények szerint, mennyire tartaná ezt fontos szolgáltatásnak?"
+    dysfunctional_question: "Ha a beállítások sablonosak és rugalmatlanok lennének, mennyire érezné ezt hiányosságnak?"
+  
+  - id: 11
+    function: "Offline mód támogatása"
+    functional_question: "Ha az eszköz offline módban is képes működni, így a hálózati problémák esetén is elérhető marad, mennyire értékelné ezt?"
+    dysfunctional_question: "Ha a készülék kizárólag online módban működne, és hálózati hiba esetén leállna, mennyire tartaná ezt problémásnak?"
+  
+  - id: 12
+    function: "Megbízhatóság és stabilitás"
+    functional_question: "Ha az eszköz hosszú távon megbízhatóan és stabilan működne, mennyire tartaná ezt alapvető jellemzőnek?"
+    dysfunctional_question: "Ha a rendszer gyakori hibákat vagy leállásokat produkálna, mennyire lenne ez elfogadhatatlan az üzemeltetés során?"
+  
+  - id: 13
+    function: "Energiahatékonyság"
+    functional_question: "Ha az eszköz energiahatékonyan működik, alacsony üzemeltetési költségekkel, mennyire értékelné ezt a tulajdonságot?"
+    dysfunctional_question: "Ha az eszköz magas energiafogyasztással működne, és ez növelné az üzemeltetési költségeket, mennyire befolyásolná ez a döntést?"
+  
+  - id: 14
+    function: "Skálázhatóság"
+    functional_question: "Ha a rendszer könnyen bővíthető, és a cég növekedésével párhuzamosan további funkciókkal bővíthető lenne, mennyire tartaná ezt előnyösnek?"
+    dysfunctional_question: "Ha a készülék skálázhatatlanná válna, és bővítéséhez teljes rendszer cseréje szükséges lenne, mennyire aggódna emiatt?"
+  
+  - id: 15
+    function: "Távoli monitorozás és automatikus diagnosztika"
+    functional_question: "Ha a rendszer lehetőséget biztosítana a távoli monitorozásra és automatikus hibadiagnosztikára, mennyire tartaná ezt fontosnak a zökkenőmentes üzemeltetéshez?"
+    dysfunctional_question: "Ha a távoli monitorozás hiányozna, és minden hibára személyes beavatkozásra lenne szükség, mennyire érezné ezt akadályként?"
+  
+  - id: 16
+    function: "Használati statisztikák és riportok"
+    functional_question: "Ha az eszköz részletes statisztikákat és riportokat készítene, segítve ezzel a belső elemzést, mennyire tartaná ezt hasznosnak?"
+    dysfunctional_question: "Ha a rendszer nem szolgáltatna semmilyen jelentést, mennyire lenne ez információhiányos a felhasználók számára?"
+  
+  - id: 17
+    function: "Kompatibilitás a meglévő IT-rendszerrel"
+    functional_question: "Ha az eszköz zökkenőmentesen integrálható lenne a cég meglévő IT-infrastruktúrájába, mennyire értékelné ezt?"
+    dysfunctional_question: "Ha a rendszer nem lenne kompatibilis, és bonyolult integrációt igényelne, mennyire tartaná ez problémásnak?"
+  
+  - id: 18
+    function: "Részletes dokumentáció és felhasználói útmutató"
+    functional_question: "Ha az eszközhöz átfogó, könnyen követhető dokumentáció és útmutató tartozna, mennyire segítené ez a bevezetést és mindennapos használatot?"
+    dysfunctional_question: "Ha a dokumentáció hiányos vagy zavaros lenne, mennyire nehezítené ez a rendszer használatát?"
+  
+  - id: 19
+    function: "Ügyfélszolgálat és technikai támogatás"
+    functional_question: "Ha a szolgáltatáshoz elérhető lenne egy barátságos, 24/7-es ügyfélszolgálat és technikai támogatás, mennyire tartaná ezt fontosnak?"
+    dysfunctional_question: "Ha az ügyfélszolgálat hiányozna, vagy csak munkaidőben lenne elérhető, mennyire aggódna emiatt?"
+  
+  - id: 20
+    function: "Frissítések és jövőbeli bővítési lehetőségek"
+    functional_question: "Ha a rendszer folyamatosan frissülne, új funkciókkal bővülne, és lépést tartana a technológiai fejlődéssel, mennyire tartaná ezt stratégiai előrelépésnek?"
+    dysfunctional_question: "Ha a rendszer nem kapna rendszeres frissítéseket, vagy nincs lehetőség jövőbeli bővítésre, mennyire érezné ezt hátrányosnak az üzleti versenyképesség szempontjából?"
+

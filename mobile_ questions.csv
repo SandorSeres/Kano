@@ -1,0 +1,35 @@
+Timestamp,Question_ID,Function,Question_Type,Answer
+2025-04-09T17:30:00.129416,1,Egyszerű hangfelvétel egy gombnyomással,functional,Inkább elégedett / valamennyire fontos
+2025-04-09T17:30:00.129416,1,Egyszerű hangfelvétel egy gombnyomással,dysfunctional,Semleges
+2025-04-09T17:30:00.129416,2,Valós idejű hangfelvétel feltöltése WebSocket-en keresztül,functional,Semleges
+2025-04-09T17:30:00.129416,2,Valós idejű hangfelvétel feltöltése WebSocket-en keresztül,dysfunctional,Inkább elégedett / valamennyire fontos
+2025-04-09T17:30:00.129416,3,"Audio feldolgozás (denoise, normalizálás, volumen ellenőrzés)",functional,Semleges
+2025-04-09T17:30:00.129416,3,"Audio feldolgozás (denoise, normalizálás, volumen ellenőrzés)",dysfunctional,Kevéssé elégedett / kevéssé fontos
+2025-04-09T17:30:00.129416,4,Automatikus speech-to-text transzkripció (Whisper alapú),functional,Inkább elégedett / valamennyire fontos
+2025-04-09T17:30:00.129416,4,Automatikus speech-to-text transzkripció (Whisper alapú),dysfunctional,Semleges
+2025-04-09T17:30:00.129416,5,Időkeret alapú transzkripciók elküldése RabbitMQ üzenetsorba,functional,Nagyon elégedett / nagyon fontos
+2025-04-09T17:30:00.129416,5,Időkeret alapú transzkripciók elküldése RabbitMQ üzenetsorba,dysfunctional,Inkább elégedett / valamennyire fontos
+2025-04-09T17:30:00.129416,6,Nyers szöveg tisztítása előre definiált sablon alapján,functional,Nagyon elégedett / nagyon fontos
+2025-04-09T17:30:00.129416,6,Nyers szöveg tisztítása előre definiált sablon alapján,dysfunctional,Inkább elégedett / valamennyire fontos
+2025-04-09T17:30:00.129416,7,Intent alapú feldolgozás a tisztított szövegből,functional,Nagyon elégedett / nagyon fontos
+2025-04-09T17:30:00.129416,7,Intent alapú feldolgozás a tisztított szövegből,dysfunctional,Inkább elégedett / valamennyire fontos
+2025-04-09T17:30:00.129416,8,Strukturált adat generálása LLM segítségével,functional,Inkább elégedett / valamennyire fontos
+2025-04-09T17:30:00.129416,8,Strukturált adat generálása LLM segítségével,dysfunctional,Inkább elégedett / valamennyire fontos
+2025-04-09T17:30:00.129416,9,Dinamikusan konfigurálható REST API kliens az adatátvitelhez,functional,Nagyon elégedett / nagyon fontos
+2025-04-09T17:30:00.129416,9,Dinamikusan konfigurálható REST API kliens az adatátvitelhez,dysfunctional,Semleges
+2025-04-09T17:30:00.129416,10,Moduláris rendszerfelépítés és bővíthetőség,functional,Semleges
+2025-04-09T17:30:00.129416,10,Moduláris rendszerfelépítés és bővíthetőség,dysfunctional,Semleges
+2025-04-09T17:30:00.129416,11,Aszinkron kommunikáció RabbitMQ üzenetsorokon keresztül,functional,Semleges
+2025-04-09T17:30:00.129416,11,Aszinkron kommunikáció RabbitMQ üzenetsorokon keresztül,dysfunctional,Egyáltalán nem elégedett / nem fontos
+2025-04-09T17:30:00.129416,12,Konfigurációs YAML fájl alapú dinamikus frissítés,functional,Nagyon elégedett / nagyon fontos
+2025-04-09T17:30:00.129416,12,Konfigurációs YAML fájl alapú dinamikus frissítés,dysfunctional,Nagyon elégedett / nagyon fontos
+2025-04-09T17:30:00.129416,13,"Felhasználói élmény: egyszerű, intuitív használat",functional,Semleges
+2025-04-09T17:30:00.129416,13,"Felhasználói élmény: egyszerű, intuitív használat",dysfunctional,Semleges
+2025-04-09T17:30:00.129416,14,Rendszer skálázhatósága a megnövekedett terheléshez,functional,Egyáltalán nem elégedett / nem fontos
+2025-04-09T17:30:00.129416,14,Rendszer skálázhatósága a megnövekedett terheléshez,dysfunctional,Semleges
+2025-04-09T17:30:00.129416,15,Automatizált hibajavítás és rendszerfrissítések,functional,Kevéssé elégedett / kevéssé fontos
+2025-04-09T17:30:00.129416,15,Automatizált hibajavítás és rendszerfrissítések,dysfunctional,Semleges
+2025-04-09T17:30:00.129416,16,Intelligens hibakezelés és visszajelzés,functional,Inkább elégedett / valamennyire fontos
+2025-04-09T17:30:00.129416,16,Intelligens hibakezelés és visszajelzés,dysfunctional,Nagyon elégedett / nagyon fontos
+2025-04-09T17:30:00.129416,17,"Integráció meglévő rendszerekkel, zökkenőmentes API csatlakozás",functional,Inkább elégedett / valamennyire fontos
+2025-04-09T17:30:00.129416,17,"Integráció meglévő rendszerekkel, zökkenőmentes API csatlakozás",dysfunctional,Inkább elégedett / valamennyire fontos

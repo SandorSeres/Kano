@@ -1,0 +1,88 @@
+project:
+  - Valós idejű beszéd-feldolgozó rendszer
+questions:
+  - id: 1
+    function: "Egyszerű hangfelvétel egy gombnyomással"
+    functional_question: "Ha az Android alkalmazás lehetővé teszi, hogy egyetlen gombnyomással hangüzenetet rögzítsen, mennyire tartaná ezt felhasználóbarátnak?"
+    dysfunctional_question: "Ha a hangfelvétel indítása bonyolult menüpontokon keresztül történne, mennyire érezné a használatot nehézkesnek?"
+  
+  - id: 2
+    function: "Valós idejű hangfelvétel feltöltése WebSocket-en keresztül"
+    functional_question: "Ha a rögzített hang azonnal feltöltésre kerülne a WebSocket szerverre, mennyire tartaná ezt előnyösnek a valós idejű feldolgozás szempontjából?"
+    dysfunctional_question: "Ha a hangfelvétel késleltetve vagy megbízhatatlanul kerülne feltöltésre, mennyire aggódna a rendszer válaszidejének és pontosságának hiánya miatt?"
+  
+  - id: 3
+    function: "Audio feldolgozás (denoise, normalizálás, volumen ellenőrzés)"
+    functional_question: "Ha a rendszer automatikusan optimalizálná a hangminőséget a zajcsökkentés, normalizálás és volumen ellenőrzés révén, mennyire tartaná ezt hasznosnak?"
+    dysfunctional_question: "Ha az audio feldolgozás nem történne meg, és ennek következtében a hangminőség ingadozna, mennyire érezné a szolgáltatás hiányosságát?"
+  
+  - id: 4
+    function: "Automatikus speech-to-text transzkripció (Whisper alapú)"
+    functional_question: "Ha a rendszer automatikusan és pontosan tudná átalakítani a hangot szöveggé, mennyire elégedett lenne a transzkripció eredményével?"
+    dysfunctional_question: "Ha a transzkripció pontatlan lenne vagy manuális beavatkozást igényelne, mennyire tartaná ezt problémásnak?"
+  
+  - id: 5
+    function: "Időkeret alapú transzkripciók elküldése RabbitMQ üzenetsorba"
+    functional_question: "Ha a rendszer az előírt időkeret lejárta után automatikusan továbbítaná a transzkripciókat, mennyire tartaná ezt megbízhatónak?"
+    dysfunctional_question: "Ha a transzkripciók késleltetve vagy egyáltalán nem kerülnének továbbításra, mennyire aggódna a rendszer hatékonysága miatt?"
+  
+  - id: 6
+    function: "Nyers szöveg tisztítása előre definiált sablon alapján"
+    functional_question: "Ha a rendszer képes lenne a nyers transzkripciót automatikusan megtisztítani a zajos, irreleváns információktól, mennyire értékelné ezt a funkciót?"
+    dysfunctional_question: "Ha a nyers szöveg nem kerülne tisztításra, és így túl sok irreleváns információ maradna benne, mennyire tartaná ezt hiányosnak?"
+  
+  - id: 7
+    function: "Intent alapú feldolgozás a tisztított szövegből"
+    functional_question: "Ha a rendszer pontosan felismerné a felhasználói szándékot (intent) a tisztított szöveg alapján, mennyire tartaná ezt előnyösnek?"
+    dysfunctional_question: "Ha az intent detektálás hiányozna vagy pontatlanul történne, mennyire aggódna a rendszer által generált adatok minősége miatt?"
+  
+  - id: 8
+    function: "Strukturált adat generálása LLM segítségével"
+    functional_question: "Ha az LLM szerver a tisztított szöveget strukturált, felhasználható adattá alakítaná, mennyire lenne elégedett az eredménnyel?"
+    dysfunctional_question: "Ha a rendszer nem tudna strukturált adatot előállítani a nyers szövegből, mennyire tartaná ezt hiányosnak?"
+  
+  - id: 9
+    function: "Dinamikusan konfigurálható REST API kliens az adatátvitelhez"
+    functional_question: "Ha a feldolgozott adatokat egy dinamikusan konfigurálható REST API kliens segítségével zökkenőmentesen továbbítaná, mennyire tartaná ezt stratégiailag fontosnak?"
+    dysfunctional_question: "Ha az adatátvitel nem lenne dinamikusan konfigurálható, és gyakori hibák lépnének fel az integráció során, mennyire aggódna a rendszer interfészének megbízhatósága miatt?"
+  
+  - id: 10
+    function: "Moduláris rendszerfelépítés és bővíthetőség"
+    functional_question: "Ha a rendszer moduláris felépítése lehetővé teszi az egyszerű bővítést és testreszabást, mennyire tartaná ezt előnyösnek a jövőbeni igények kielégítésére?"
+    dysfunctional_question: "Ha a rendszer merev és nehezen bővíthető lenne, mennyire érezné ezt hátrányosnak az üzleti növekedés szempontjából?"
+  
+  - id: 11
+    function: "Aszinkron kommunikáció RabbitMQ üzenetsorokon keresztül"
+    functional_question: "Ha a belső kommunikáció RabbitMQ üzenetsorokon aszinkron és megbízható módon zajlana, mennyire tartaná ezt fontosnak?"
+    dysfunctional_question: "Ha az aszinkron kommunikáció nem működne megfelelően, és instabilitáshoz vezetne, mennyire aggódna ezért?"
+  
+  - id: 12
+    function: "Konfigurációs YAML fájl alapú dinamikus frissítés"
+    functional_question: "Ha a rendszer konfigurációja dinamikusan, YAML fájl segítségével könnyen frissíthető lenne, mennyire értékelné ezt a rugalmasságot?"
+    dysfunctional_question: "Ha a konfiguráció statikus lenne, és frissítéséhez kódmódosításra lenne szükség, mennyire tartaná ezt hátrányosnak?"
+  
+  - id: 13
+    function: "Felhasználói élmény: egyszerű, intuitív használat"
+    functional_question: "Ha a felhasználói felület átlátható és egyszerű, így a hangfelvétel, feltöltés és feldolgozás lépései könnyen elvégezhetők lennének, mennyire lenne elégedett a használhatósággal?"
+    dysfunctional_question: "Ha a rendszer felhasználói felülete bonyolult és nehézkesen kezelhető lenne, mennyire érezné ezt negatív élményként?"
+  
+  - id: 14
+    function: "Rendszer skálázhatósága a megnövekedett terheléshez"
+    functional_question: "Ha a rendszer könnyen skálázható, és a megnövekedett terhelést is hatékonyan tudná kezelni, mennyire tartaná ezt stratégiailag fontosnak?"
+    dysfunctional_question: "Ha a rendszer nem lenne skálázható, és a megnövekedett terhelést nem tudná megfelelően kezelni, mennyire aggódna ezért?"
+  
+  - id: 15
+    function: "Automatizált hibajavítás és rendszerfrissítések"
+    functional_question: "Ha a rendszer automatizált hibajavítással és rendszerfrissítésekkel mindig naprakész lenne, mennyire értékelné ezt a kényelmi funkciót?"
+    dysfunctional_question: "Ha a hibajavítások és frissítések manuális beavatkozást igényelnének, mennyire tartaná ezt időigényesnek és kényelmetlennek?"
+  
+  - id: 16
+    function: "Intelligens hibakezelés és visszajelzés"
+    functional_question: "Ha a rendszer intelligens hibakezeléssel rendelkezne, és gyors visszajelzést adna a felmerülő problémákról, mennyire tartaná ezt fontos funkciónak?"
+    dysfunctional_question: "Ha a hibakezelés lassú vagy hiányos lenne, mennyire aggódna a rendszer megbízhatósága miatt?"
+  
+  - id: 17
+    function: "Integráció meglévő rendszerekkel, zökkenőmentes API csatlakozás"
+    functional_question: "Ha a rendszer zökkenőmentesen integrálható lenne a meglévő rendszerekkel egy jól konfigurálható API-n keresztül, mennyire tartaná ezt előnyösnek az üzleti folyamatok szempontjából?"
+    dysfunctional_question: "Ha az integráció bonyolult lenne, és problémák adódnának a külső rendszerekkel való csatlakozás során, mennyire aggódna a kompatibilitás miatt?"
+

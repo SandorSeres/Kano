@@ -1,0 +1,17 @@
+{
+    "version": "0.1.0",
+    "configurations": [
+        
+        {
+            "name": "Python: main.py",
+            "type": "python",
+            "request": "launch",
+            "runArgs": ["--gpus", "all"],
+            "program": "/workspaces/Kano/main.py",
+            "env": {
+                "PYTHONPATH": "/workspaces/kano"
+            },
+            "console": "integratedTerminal"
+        }
+    ]
+}

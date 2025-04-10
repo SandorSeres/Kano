@@ -148,16 +148,23 @@ async def evaluation(request: Request, project: str = None, username: str = Depe
     if not project:
         return RedirectResponse(url=f"/admin/choose?username={username}", status_code=303)
     csv_filename = get_csv_filename(project)
-    if not os.path.exists(csv_filename):
+    
+    # Olvassuk a CSV fájlt a bucketből
+    bucket = storage_client.bucket(BUCKET_NAME)
+    blob = bucket.blob(csv_filename)
+    
+    if not blob.exists():
         evaluation = []
     else:
+        csv_text = blob.download_as_text()  # Letöltjük a CSV tartalmát szövegként
+        import io
+        csv_buffer = io.StringIO(csv_text)
         responses = []
-        with open(csv_filename, mode="r", newline="", encoding="utf-8") as f:
-            reader = csv.DictReader(f)
-            for row in reader:
-                row["Numeric_Answer"] = response_mapping.get(row["Answer"], None)
-                if row["Numeric_Answer"] is not None:
-                    responses.append(row)
+        reader = csv.DictReader(csv_buffer)
+        for row in reader:
+            row["Numeric_Answer"] = response_mapping.get(row["Answer"], None)
+            if row["Numeric_Answer"] is not None:
+                responses.append(row)
         
         evaluation_data = {}
         for row in responses:
@@ -197,18 +204,15 @@ async def evaluation(request: Request, project: str = None, username: str = Depe
                 "Delta": delta,
                 "Category": category
             })
-
+    
     # Csoportosítás és rendezés:
     must_be = [x for x in evaluation if x["Category"] == "Must-be (Basic)"]
     one_dim = [x for x in evaluation if x["Category"] == "One-dimensional (Performance)"]
     attractive = [x for x in evaluation if x["Category"] == "Attractive (Delight)"]
 
     # Rendezés kategórián belül:
-    # Must-be: magasabb Delta érték előrébb (nagyobb elégedetlenség hiány esetén)
     must_be_sorted = sorted(must_be, key=lambda x: x["Delta"] if x["Delta"] is not None else 0, reverse=True)
-    # One-dimensional: abszolút Delta érték alapján (nagyobb eltérés erősebb hatást jelez)
     one_dim_sorted = sorted(one_dim, key=lambda x: abs(x["Delta"]) if x["Delta"] is not None else 0, reverse=True)
-    # Attractive: mivel Delta negatív, rendezés növekvő sorrendben, így a nagyobb (abszolút) negatív érték előrébb kerül
     attractive_sorted = sorted(attractive, key=lambda x: x["Delta"] if x["Delta"] is not None else 0)
 
     ordered_evaluation = must_be_sorted + one_dim_sorted + attractive_sorted

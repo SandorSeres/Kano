@@ -1,15 +1,26 @@
 <!DOCTYPE html>
 <html lang="hu">
+
 <head>
   <meta charset="UTF-8">
   <title>KANO Kiértékelés - {{ config_file }}</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
   <style>
-      body { background-color: #f8f9fa; }
-      .table-container { margin-top: 2rem; }
-      .header { margin-top: 2rem; margin-bottom: 1rem; }
+    body {
+      background-color: #f8f9fa;
+    }
+
+    .table-container {
+      margin-top: 2rem;
+    }
+
+    .header {
+      margin-top: 2rem;
+      margin-bottom: 1rem;
+    }
   </style>
 </head>
+
 <body>
   <div class="container">
     <h1 class="text-center header">Kiértékelés: {{ config_file }}</h1>
@@ -28,26 +39,27 @@
         </thead>
         <tbody>
           {% for item in evaluation %}
-            <tr>
-              <td>{{ item.Question_ID }}</td>
-              <td>{{ item.Function }}</td>
-              <td>{{ item.Functional_Average | default("N/A") }}</td>
-              <td>{{ item.Dysfunctional_Average | default("N/A") }}</td>
-              <td>{{ item.Delta | default("N/A") }}</td>
-              <td>{{ item.Category }}</td>
-            </tr>
+          <tr>
+            <td>{{ item.Question_ID }}</td>
+            <td>{{ item.Function }}</td>
+            <td>{{ item.Functional_Average | default("N/A") }}</td>
+            <td>{{ item.Dysfunctional_Average | default("N/A") }}</td>
+            <td>{{ item.Delta | default("N/A") }}</td>
+            <td>{{ item.Category }}</td>
+          </tr>
           {% endfor %}
         </tbody>
       </table>
       {% else %}
-        <div class="alert alert-warning" role="alert">
-          Nincs kiértékelhető adat.
-        </div>
+      <div class="alert alert-warning" role="alert">
+        Nincs kiértékelhető adat.
+      </div>
       {% endif %}
     </div>
     <div class="text-center mt-3">
-      <a href="/choose" class="btn btn-primary">Vissza a projekt választóhoz</a>
+      <a href="/admin/choose?username=admin" class="btn btn-primary">Vissza a projekt választóhoz</a>
     </div>
   </div>
 </body>
+
 </html>

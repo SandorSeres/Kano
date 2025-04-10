@@ -42,9 +42,27 @@
           <tr>
             <td>{{ item.Question_ID }}</td>
             <td>{{ item.Function }}</td>
-            <td>{{ item.Functional_Average | default("N/A") }}</td>
-            <td>{{ item.Dysfunctional_Average | default("N/A") }}</td>
-            <td>{{ item.Delta | default("N/A") }}</td>
+            <td>
+              {% if item.Functional_Average is not none %}
+              {{ "{:.2f}".format(item.Functional_Average) }}
+              {% else %}
+              N/A
+              {% endif %}
+            </td>
+            <td>
+              {% if item.Dysfunctional_Average is not none %}
+              {{ "{:.2f}".format(item.Dysfunctional_Average) }}
+              {% else %}
+              N/A
+              {% endif %}
+            </td>
+            <td>
+              {% if item.Delta is not none %}
+              {{ "{:.2f}".format(item.Delta) }}
+              {% else %}
+              N/A
+              {% endif %}
+            </td>
             <td>{{ item.Category }}</td>
           </tr>
           {% endfor %}

@@ -1,16 +1,3 @@
-"""
-A Kano Modell alapjai röviden
-Alapvető jellemzők (Must-be)
-Ezek a funkciók természetesen elvártak: a hiányuk elégedetlenséget okoz, viszont a meglétük nem növeli az ügyfél elégedettségét.
-
-Teljesítmény jellemzők (Performance)
-Itt a funkció teljesítménye egyenesen arányos az ügyfél elégedettségével: minél jobb a funkció, annál elégedettebb az ügyfél.
-
-Élmény jellemzők (Delighters)
-Ezek olyan extra funkciók, amelyek nem elvártak, de ha jelen vannak, jelentős pozitív hatást gyakorolnak az ügyfél élményére, ha hiányoznak, általában nem okoznak elégedetlenséget.
-
-"""
-
 from fastapi import FastAPI, Request, HTTPException, Query, Depends
 from fastapi.responses import HTMLResponse, RedirectResponse, JSONResponse
 from fastapi.staticfiles import StaticFiles
@@ -23,15 +10,14 @@ import statistics
 import asyncio
 
 write_lock = asyncio.Lock()
-
 app = FastAPI()
-
 templates = Jinja2Templates(directory="templates")
 app.mount("/static", StaticFiles(directory="static"), name="static")
 
 CONFIG_DIR = "config"  # A YAML fájlok könyvtára
 
-response_mapping = {
+# Funkcionális kérdés mapping – itt a magasabb érték nagyobb elégedettséget jelent
+functional_mapping = {
     "Nagyon elégedett / nagyon fontos": 5,
     "Inkább elégedett / valamennyire fontos": 4,
     "Semleges": 3,
@@ -39,6 +25,14 @@ response_mapping = {
     "Egyáltalán nem elégedett / nem fontos": 1
 }
 
+# Dysfunctional (hiány) kérdés mapping – itt a magasabb érték azt jelzi, hogy a funkció hiánya nagyobb elégedetlenséget okoz
+dysfunctional_mapping = {
+    "Nagyon elégedetlen / alapvető hiányosság": 5,
+    "Elégedetlen / elég kritikus": 4,
+    "Semleges": 3,
+    "Nem nagyon érdekelne / kevésbé zavarna": 2,
+    "Egyáltalán nem érdekelne / nem okozna gondot": 1
+}
 def list_config_files():
     return [file for file in os.listdir(CONFIG_DIR) if file.endswith((".yaml", ".yml"))]
 
@@ -82,9 +76,8 @@ async def form_get(request: Request, project: str = None):
 from google.cloud import storage
 import io
 
-# Inicializáljuk a Storage klienst (GCP service account kulccsal, ha szükséges)
 storage_client = storage.Client()
-BUCKET_NAME = "kano-responses"  # A te bucket-ed neve
+BUCKET_NAME = "kano-responses"  # A bucket neve
 
 def upload_csv_to_gcs(bucket_name, destination_blob_name, file_contents):
     bucket = storage_client.bucket(bucket_name)
@@ -111,35 +104,30 @@ async def submit(request: Request):
             answer = form[key]
             answers.append([timestamp, question_id, function_text, qtype, answer])
     
-    # Letöltjük, vagy ha nem létezik, létrehozzuk a CSV tartalmát egy in-memory bufferben
     csv_buffer = io.StringIO()
     writer = csv.writer(csv_buffer)
     
-    # Ha létezik a file a bucketben, letölthetjük, különben írunk egy fejlécet.
     bucket = storage_client.bucket(BUCKET_NAME)
     blob = bucket.blob(csv_filename)
     if blob.exists():
-        # Letöltjük a korábbi tartalmat
         existing_data = blob.download_as_text()
         csv_buffer.write(existing_data)
         csv_buffer.write("\n")
     else:
         writer.writerow(["Timestamp", "Question_ID", "Function", "Question_Type", "Answer"])
     
-    # Írjuk hozzá az új sorokat
     for row in answers:
         writer.writerow(row)
     
-    # Feltöltjük a módosított CSV-t
-    upload_csv_to_gcs(BUCKET_NAME, csv_filename, csv_buffer)
+    async with write_lock:
+        upload_csv_to_gcs(BUCKET_NAME, csv_filename, csv_buffer)
     
     return RedirectResponse(url="/form?project=" + config_file, status_code=303)
 
-# --- Admin választóoldala: Csak az admin férhet hozzá, itt az értékeléshez vezető linkek vannak ---
+# --- Admin választóoldala ---
 @app.get("/admin/choose", response_class=HTMLResponse)
 async def admin_choose(request: Request, username: str = Depends(verify_admin)):
     config_files = list_config_files()
-    # Az admin választóoldal csak az értékelésre vezető linkeket mutatja
     return templates.TemplateResponse("choose_admin.html", {"request": request, "config_files": config_files})
 
 # --- Admin értékelési oldal ---
@@ -149,20 +137,25 @@ async def evaluation(request: Request, project: str = None, username: str = Depe
         return RedirectResponse(url=f"/admin/choose?username={username}", status_code=303)
     csv_filename = get_csv_filename(project)
     
-    # Olvassuk a CSV fájlt a bucketből
     bucket = storage_client.bucket(BUCKET_NAME)
     blob = bucket.blob(csv_filename)
     
     if not blob.exists():
         evaluation = []
     else:
-        csv_text = blob.download_as_text()  # Letöltjük a CSV tartalmát szövegként
+        csv_text = blob.download_as_text()
         import io
         csv_buffer = io.StringIO(csv_text)
         responses = []
         reader = csv.DictReader(csv_buffer)
         for row in reader:
-            row["Numeric_Answer"] = response_mapping.get(row["Answer"], None)
+            # Az adott sorban a "Question_Type" alapján választjuk ki a megfelelő mapping-et
+            if row["Question_Type"].lower() == "functional":
+                row["Numeric_Answer"] = functional_mapping.get(row["Answer"], None)
+            elif row["Question_Type"].lower() == "dysfunctional":
+                row["Numeric_Answer"] = dysfunctional_mapping.get(row["Answer"], None)
+            else:
+                row["Numeric_Answer"] = None
             if row["Numeric_Answer"] is not None:
                 responses.append(row)
         
@@ -205,12 +198,10 @@ async def evaluation(request: Request, project: str = None, username: str = Depe
                 "Category": category
             })
     
-    # Csoportosítás és rendezés:
     must_be = [x for x in evaluation if x["Category"] == "Must-be (Basic)"]
     one_dim = [x for x in evaluation if x["Category"] == "One-dimensional (Performance)"]
     attractive = [x for x in evaluation if x["Category"] == "Attractive (Delight)"]
 
-    # Rendezés kategórián belül:
     must_be_sorted = sorted(must_be, key=lambda x: x["Delta"] if x["Delta"] is not None else 0, reverse=True)
     one_dim_sorted = sorted(one_dim, key=lambda x: abs(x["Delta"]) if x["Delta"] is not None else 0, reverse=True)
     attractive_sorted = sorted(attractive, key=lambda x: x["Delta"] if x["Delta"] is not None else 0)

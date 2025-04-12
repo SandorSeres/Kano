@@ -1,0 +1,98 @@
+project:
+  - Prompt Engineering Tanfolyam
+
+questions:
+  - id: 1
+    topic: "Mesterséges intelligencia alapjai"
+    functional_question: "Mennyire lenne elégedett, ha részletesen bemutatnánk a mesterséges intelligencia alapjait és fejlődését?"
+    dysfunctional_question: "Mennyire zavarná, ha a tanfolyamban nem szerepelne részletes áttekintés az MI alapjairól?"
+
+  - id: 2
+    topic: "Neurális hálózatok elmélete"
+    functional_question: "Mennyire találja fontosnak, hogy a tanfolyamban szerepeljenek a neurális hálózatok matematikai alapjai és működési elvei?"
+    dysfunctional_question: "Mennyire érezné hiányosságnak, ha ez a matematikai háttér és működési elv nem kerülne részletesen ismertetésre?"
+
+  - id: 3
+    topic: "Nyelvi modellek és platformok"
+    functional_question: "Mennyire lenne elégedett, ha a tanfolyam összehasonlítaná a különböző nyelvi modelleket és platformokat?"
+    dysfunctional_question: "Mennyire zavarná, ha nem kapna átfogó képet a nyelvi modellekről és platformokról a tanfolyamon?"
+
+  - id: 4
+    topic: "Zero-shot Prompt"
+    functional_question: "Mennyire érzi fontosnak, hogy a tanfolyam bemutassa a zero-shot prompt technikát (példák nélkül is)?"
+    dysfunctional_question: "Mennyire zavarná, ha a zero-shot prompt témája egyáltalán nem szerepelne vagy nem lenne szemléltetve?"
+
+  - id: 5
+    topic: "Few-shot Prompt"
+    functional_question: "Mennyire lenne elégedett, ha a tanfolyam gyakorlati példákkal illusztrálná a few-shot prompt technika alkalmazását?"
+    dysfunctional_question: "Mennyire zavarná, ha nem tanulhatná meg a few-shot prompt lényegét és használatát gyakorlati példákon keresztül?"
+
+  - id: 6
+    topic: "Chain-of-Thought Prompt"
+    functional_question: "Mennyire tartja fontosnak, hogy a tanfolyam bemutassa a gondolatmenet lépésről lépésre történő lebontását (Chain-of-Thought)?"
+    dysfunctional_question: "Mennyire érezné hiányosságnak, ha nem látna részletes magyarázatot a gondolatmenetek lebontásáról (Chain-of-Thought)?"
+
+  - id: 7
+    topic: "ReAct Technique"
+    functional_question: "Mennyire lenne elégedett, ha a tanfolyam a gondolkodás és cselekvés kombinálásán alapuló ReAct technikát is bemutatná?"
+    dysfunctional_question: "Mennyire zavarná, ha nem kerülne bemutatásra, hogy miként ötvözhető a gondolkodás és a cselekvés (ReAct) a promptok során?"
+
+  - id: 8
+    topic: "Prompt Chaining"
+    functional_question: "Mennyire találja hasznosnak, hogy a tanfolyam több egymást követő promptot is összekapcsol a komplex feladatok megoldására?"
+    dysfunctional_question: "Mennyire zavarná, ha a tanfolyamban nem mutatnák be a prompt chaining lehetőségét összetett feladatoknál?"
+
+  - id: 9
+    topic: "Haladó stratégiák és Chain-of-X technikák"
+    functional_question: "Mennyire lenne elégedett, ha a tanfolyam részletesen kitérne a haladó Chain-of-X (például Tree-of-Thought, Reasoning via Planning) módszerekre?"
+    dysfunctional_question: "Mennyire zavarná, ha ezek a haladó stratégiák (Chain-of-X) kimaradnának vagy csak érintőlegesen jelennének meg?"
+
+  - id: 10
+    topic: "Hallucinációk kezelése RAG technikával"
+    functional_question: "Mennyire tartja fontosnak, hogy a tanfolyamon szerepeljen a hallucinációk kezelése Retrieval Augmented Generation (RAG) segítségével?"
+    dysfunctional_question: "Mennyire zavarná, ha a RAG technika és a hallucinációk kezelésének bemutatása hiányozna a képzésből?"
+
+  - id: 11
+    topic: "Modell tanítás és finomhangolás"
+    functional_question: "Mennyire lenne elégedett, ha a tanfolyam részletesen bemutatná a modell tanítási és finomhangolási módszereket?"
+    dysfunctional_question: "Mennyire zavarná, ha ezekről a tanítási és finomhangolási módszerekről nem szerezne részletes tudást a tanfolyamon?"
+
+  - id: 12
+    topic: "Multi-agent AI megoldások"
+    functional_question: "Mennyire fontosnak tartja, hogy a tanfolyam bemutassa a több ügynökös (multi-agent) rendszerek működését és előnyeit?"
+    dysfunctional_question: "Mennyire okozna elégedetlenséget, ha a multi-agent AI megoldások kihagynák vagy csak felületesen tárgyalnák a tanfolyamon?"
+
+  - id: 13
+    topic: "Eszközök és platformok áttekintése"
+    functional_question: "Mennyire lenne elégedett, ha a tanfolyam részletesen bemutatná a prompt engineering során használható főbb eszközöket és platformokat?"
+    dysfunctional_question: "Mennyire zavarná, ha nem kapna átfogó képet a fontosabb eszközökről és platformokról a tanfolyam alatt?"
+
+  - id: 14
+    topic: "Esettanulmányok és gyakorlati példák"
+    functional_question: "Mennyire tartja fontosnak a részletes esettanulmányokat és gyakorlati példákat a promptolási technikák illusztrálására?"
+    dysfunctional_question: "Mennyire zavarná, ha alig vagy egyáltalán nem lennének valós alkalmazási példák a tanfolyamon?"
+
+  - id: 15
+    topic: "Interaktív gyakorlatok és workshopok"
+    functional_question: "Mennyire lenne elégedett, ha a tanfolyam interaktív gyakorlatokat és workshopokat is kínálna a prompt engineering gyakorlati elsajátításához?"
+    dysfunctional_question: "Mennyire zavarná, ha kimaradnának az interaktív elemek és a gyakorlati feladatok, így kevés lehetősége lenne a valós gyakorlásra?"
+
+  - id: 16
+    topic: "Ügyfél-probléma megoldás (Prompt Chaining + ReAct)"
+    functional_question: "Mennyire találná hasznosnak, ha a tanfolyamon egy gyakorlati feladat keretében (például 'Ügyfél-probléma megoldás') egyszerre alkalmazhatná a Prompt Chaining és ReAct megközelítéseket?"
+    dysfunctional_question: "Mennyire zavarná, ha a tanfolyamból teljesen hiányozna vagy csak felületesen lenne tárgyalva ez az Ügyfél-probléma megoldó feladat, ahol a Prompt Chaininget és ReActet közösen használják?"
+
+  - id: 17
+    topic: "Automatikus Szakértői Rendszer (Multi-Role Prompt + Chain-of-Knowledge)"
+    functional_question: "Mennyire tartaná fontosnak, hogy a tanfolyam során legyen egy 'Automatikus Szakértői Rendszer' feladat, ahol több szakértői szerep és a Chain-of-Knowledge technika integrálásával oldanak meg egy összetett problémát?"
+    dysfunctional_question: "Mennyire érezné hiányosságnak, ha a tanfolyam nem biztosítana lehetőséget a Multi-Role Prompt és a Chain-of-Knowledge gyakorlati megismerésére (például egy automatizált szakértői rendszer feladatban)?"
+
+  - id: 18
+    topic: "Innovációs Workshop (SCAMPER, Reverse Brainstorm, Big Mind Mapping)"
+    functional_question: "Mennyire lenne elégedett, ha a tanfolyamon lehetőséget kapna egy komplex 'Innovációs Workshop' jellegű feladatban több kreatív prompt technikát (SCAMPER, Reverse Brainstorm, Big Mind Mapping) is kipróbálni?"
+    dysfunctional_question: "Mennyire zavarná, ha a képzésből kimaradna vagy csak nagyon szűken jelenne meg az innovációs workshop, ahol a SCAMPER, Reverse Brainstorm és Big Mind Mapping technikákat lehetne megtanulni és gyakorolni?"
+
+  - id: 19
+    topic: "Kódgenerálás és Hibajavítás (ReAct + Chain-of-Thought)"
+    functional_question: "Mennyire tartja fontosnak, hogy a tanfolyamon legyen egy kódgenerálási és hibajavítási feladat, amely során a ReAct és a Chain-of-Thought technikák segítségével, lépésről lépésre lehet kipróbálni egy Python-projekt fejlesztését és debugolását?"
+    dysfunctional_question: "Mennyire zavarná, ha egyáltalán nem szerepelne a képzésben gyakorlati kódgenerálás és hibajavítás (például a ReAct + Chain-of-Thought megközelítés alkalmazása Python-kódban)?"

@@ -1,4 +1,5 @@
-PROJECT_ID=kano-456408 
+#PROJECT_ID=kano-456408 
+PROJECT_ID=prompt-engineering-79711
 docker build -t gcr.io/$PROJECT_ID/kano-app .
 gcloud auth login
 gcloud config set project $PROJECT_ID

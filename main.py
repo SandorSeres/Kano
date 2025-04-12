@@ -13,6 +13,8 @@ write_lock = asyncio.Lock()
 app = FastAPI()
 templates = Jinja2Templates(directory="templates")
 app.mount("/static", StaticFiles(directory="static"), name="static")
+#BUCKET_NAME = "kano-responses"  # A bucket neve
+BUCKET_NAME = "prompt_engineering-responses"  # A bucket neve
 
 CONFIG_DIR = "config"  # A YAML fájlok könyvtára
 
@@ -77,7 +79,6 @@ from google.cloud import storage
 import io
 
 storage_client = storage.Client()
-BUCKET_NAME = "kano-responses"  # A bucket neve
 
 def upload_csv_to_gcs(bucket_name, destination_blob_name, file_contents):
     bucket = storage_client.bucket(bucket_name)

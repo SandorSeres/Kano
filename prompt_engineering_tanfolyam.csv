@@ -1,0 +1,25 @@
+Timestamp,Question_ID,Function,Question_Type,Answer
+2025-04-14T10:56:09.529011,1,Mesterséges intelligencia alapjai,functional,Nagyon elégedett / nagyon fontos
+2025-04-14T10:56:09.529011,1,Mesterséges intelligencia alapjai,dysfunctional,Elégedetlen / elég kritikus
+2025-04-14T10:56:09.529011,2,Neurális hálózatok áttekintése,functional,Nagyon elégedett / nagyon fontos
+2025-04-14T10:56:09.529011,2,Neurális hálózatok áttekintése,dysfunctional,Semleges
+2025-04-14T10:56:09.529011,3,"Alapvető prompt technikák (Zero-shot, Few-shot, CoT, ToT, ReAct)",functional,Nagyon elégedett / nagyon fontos
+2025-04-14T10:56:09.529011,3,"Alapvető prompt technikák (Zero-shot, Few-shot, CoT, ToT, ReAct)",dysfunctional,Nagyon elégedetlen / alapvető hiányosság
+2025-04-14T10:56:09.529011,4,Retrieve-Augment-Generate (RAG) technika,functional,Semleges
+2025-04-14T10:56:09.529011,4,Retrieve-Augment-Generate (RAG) technika,dysfunctional,Semleges
+2025-04-14T10:56:09.529011,5,Modell finomhangolás (fine-tuning) alapjai,functional,Semleges
+2025-04-14T10:56:09.529011,5,Modell finomhangolás (fine-tuning) alapjai,dysfunctional,Semleges
+2025-04-14T10:56:09.529011,6,Kép generálás alapjai,functional,Nagyon elégedett / nagyon fontos
+2025-04-14T10:56:09.529011,6,Kép generálás alapjai,dysfunctional,Nagyon elégedetlen / alapvető hiányosság
+2025-04-14T10:56:09.529011,7,Üzleti ötletelést és kreatív problémamegoldást támogató technikák,functional,Nagyon elégedett / nagyon fontos
+2025-04-14T10:56:09.529011,7,Üzleti ötletelést és kreatív problémamegoldást támogató technikák,dysfunctional,Elégedetlen / elég kritikus
+2025-04-14T10:56:09.529011,8,Startupok támogatása Prompt Engineering-gel,functional,Nagyon elégedett / nagyon fontos
+2025-04-14T10:56:09.529011,8,Startupok támogatása Prompt Engineering-gel,dysfunctional,Nagyon elégedetlen / alapvető hiányosság
+2025-04-14T10:56:09.529011,9,Komplex üzleti döntéshozatal promptokkal,functional,Nagyon elégedett / nagyon fontos
+2025-04-14T10:56:09.529011,9,Komplex üzleti döntéshozatal promptokkal,dysfunctional,Nagyon elégedetlen / alapvető hiányosság
+2025-04-14T10:56:09.529011,10,Ügyfélproblémák megoldása (Prompt Chaining + ReAct) gyakorlatban,functional,Nagyon elégedett / nagyon fontos
+2025-04-14T10:56:09.529011,10,Ügyfélproblémák megoldása (Prompt Chaining + ReAct) gyakorlatban,dysfunctional,Nagyon elégedetlen / alapvető hiányosság
+2025-04-14T10:56:09.529011,11,Valós üzleti esettanulmányok,functional,Nagyon elégedett / nagyon fontos
+2025-04-14T10:56:09.529011,11,Valós üzleti esettanulmányok,dysfunctional,Nagyon elégedetlen / alapvető hiányosság
+2025-04-14T10:56:09.529011,12,Interaktív üzleti workshopok,functional,Nagyon elégedett / nagyon fontos
+2025-04-14T10:56:09.529011,12,Interaktív üzleti workshopok,dysfunctional,Nagyon elégedetlen / alapvető hiányosság

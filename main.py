@@ -86,43 +86,49 @@ def upload_csv_to_gcs(bucket_name, destination_blob_name, file_contents):
     blob.upload_from_string(file_contents.getvalue(), content_type="text/csv")
     print(f"CSV uploaded to gs://{bucket_name}/{destination_blob_name}")
 
+import re
+from google.cloud import storage
+import io
+
 @app.post("/submit", response_class=HTMLResponse)
 async def submit(request: Request):
     form = await request.form()
     timestamp = datetime.datetime.now().isoformat()
     config_file = form.get("config_file", "default.yaml")
     csv_filename = get_csv_filename(config_file)
-    
+
+    # Regex a kulcsokhoz, pl. q_1_functional vagy q_2a_dysfunctional
+    pattern = re.compile(r"q_(.+)_(functional|dysfunctional)")
+
     answers = []
     for key in form.keys():
-        if key.startswith("q_") and (key.endswith("_functional") or key.endswith("_dysfunctional")):
-            parts = key.split("_")
-            if len(parts) < 3:
-                continue
-            question_id = parts[1]
-            qtype = parts[2]
+        match = pattern.match(key)
+        if match:
+            question_id = match.group(1)
+            qtype = match.group(2)
             function_text = form.get(f"q_{question_id}_function", "N/A")
             answer = form[key]
             answers.append([timestamp, question_id, function_text, qtype, answer])
-    
+
     csv_buffer = io.StringIO()
     writer = csv.writer(csv_buffer)
-    
+
+    # Fejléc csak akkor íródik, ha új a fájl
     bucket = storage_client.bucket(BUCKET_NAME)
     blob = bucket.blob(csv_filename)
-    if blob.exists():
+    if not blob.exists():
+        writer.writerow(["Timestamp", "Question_ID", "Function", "Question_Type", "Answer"])
+    else:
         existing_data = blob.download_as_text()
         csv_buffer.write(existing_data)
         csv_buffer.write("\n")
-    else:
-        writer.writerow(["Timestamp", "Question_ID", "Function", "Question_Type", "Answer"])
-    
+
     for row in answers:
         writer.writerow(row)
-    
+
     async with write_lock:
         upload_csv_to_gcs(BUCKET_NAME, csv_filename, csv_buffer)
-    
+
     return RedirectResponse(url="/form?project=" + config_file, status_code=303)
 
 # --- Admin választóoldala ---

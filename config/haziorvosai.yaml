@@ -1,0 +1,94 @@
+project:
+  - Háziorvos.ai – Funkcióprioritási kérdőív (páciensek és orvosok számára)
+description: >
+  <p class="mb-2">
+  Ez a kérdőív a Kano-modell alapján segít felmérni, hogy a különböző funkciók mennyire fontosak a felhasználók számára,
+  illetve mennyire okozna problémát a hiányuk. A válaszok segítenek a háziorvos.ai rendszer fejlesztési prioritásainak meghatározásában.
+  </p>
+
+questions:
+  - id: 1
+    function: "AI-alapú tünetellenőrzés otthonról"
+    functional_question: "Mennyire lenne elégedett, ha a rendszer képes lenne tünetek alapján előzetes tanácsot adni, mikor érdemes orvoshoz fordulni?"
+    dysfunctional_question: "Mennyire zavarná, ha a rendszer nem tudna tünetellenőrzést végezni otthonról?"
+
+  - id: 2
+    function: "Hangalapú interakció a rendszerrel"
+    functional_question: "Mennyire lenne elégedett, ha hanggal is irányíthatná a rendszert, és kérdéseket tehetne fel szóban?"
+    dysfunctional_question: "Mennyire zavarná, ha kizárólag gépelve lehetne használni a rendszert?"
+
+  - id: 3
+    function: "Automatikus összefoglaló orvosi látogatás előtt"
+    functional_question: "Mennyire tartaná hasznosnak, ha a rendszer összefoglalná az egészségi panaszait orvosi időpont előtt?"
+    dysfunctional_question: "Mennyire zavarná, ha a rendszer nem segítene egy rövid összefoglalót készíteni az orvosnak?"
+
+  - id: 4
+    function: "Egészségügyi dokumentumok feltöltése és értelmezése"
+    functional_question: "Mennyire tartaná hasznosnak, ha feltölthetné leleteit, zárójelentéseit és a rendszer segítene az értelmezésükben?"
+    dysfunctional_question: "Mennyire zavarná, ha nem lehetne dokumentumokat feltölteni és értelmezni?"
+
+  - id: 5
+    function: "Kapcsolat meglévő háziorvossal (EESZT integráció)"
+    functional_question: "Mennyire lenne elégedett, ha a rendszer össze lenne kötve az EESZT-vel, és így az orvosához is automatikusan eljutnának az adatok?"
+    dysfunctional_question: "Mennyire zavarná, ha nem lenne kapcsolat a háziorvosával és az EESZT-vel?"
+
+  - id: 6
+    function: "Egyszerű időpontfoglalás háziorvoshoz"
+    functional_question: "Mennyire lenne elégedett, ha a rendszerből közvetlenül foglalhatna időpontot a háziorvosához?"
+    dysfunctional_question: "Mennyire zavarná, ha a rendszer nem támogatná az időpontfoglalást?"
+
+  - id: 7
+    function: "Releváns kérdések feltevése az állapot alapján"
+    functional_question: "Mennyire tartaná hasznosnak, ha a rendszer releváns, célzott kérdéseket tenne fel az állapotáról?"
+    dysfunctional_question: "Mennyire zavarná, ha a rendszer nem segítene a megfelelő kérdések feltevésében?"
+
+  - id: 8
+    function: "Krónikus betegségek nyomon követése"
+    functional_question: "Mennyire tartaná hasznosnak, ha a rendszer segítene nyomon követni a krónikus állapotokat (pl. cukorbetegség, hipertónia)?"
+    dysfunctional_question: "Mennyire zavarná, ha nem lenne ilyen követési funkció?"
+
+  - id: 9
+    function: "Egészségügyi kérdések AI-asszisztenssel"
+    functional_question: "Mennyire lenne elégedett, ha a rendszer AI-asszisztense gyorsan válaszolna gyakori egészségügyi kérdésekre?"
+    dysfunctional_question: "Mennyire zavarná, ha a rendszer nem adna választ általános egészségügyi kérdésekre?"
+
+  - id: 10
+    function: "Gyógyszerek és adagolás ellenőrzése"
+    functional_question: "Mennyire tartaná hasznosnak, ha a rendszer segítene értelmezni, mikor és hogyan kell szedni egy adott gyógyszert?"
+    dysfunctional_question: "Mennyire zavarná, ha a rendszer nem tudna segítséget adni gyógyszerekkel kapcsolatban?"
+
+  - id: 11
+    function: "Adatbiztonság és anonimitás biztosítása"
+    functional_question: "Mennyire lenne elégedett, ha biztos lehetne benne, hogy az adatai biztonságban vannak és anonimek maradnak?"
+    dysfunctional_question: "Mennyire zavarná, ha nem lenne garantált az adatbiztonság és az anonimitás?"
+
+  - id: 12
+    function: "Mobilra optimalizált, egyszerű felület"
+    functional_question: "Mennyire lenne elégedett, ha a rendszer egyszerű, jól kezelhető mobilos felülettel rendelkezne?"
+    dysfunctional_question: "Mennyire zavarná, ha a rendszer bonyolult vagy nehezen használható lenne telefonról?"
+
+  - id: 13
+    function: "Online tanácsadás egészségügyi szakértőktől"
+    functional_question: "Mennyire tartaná értékesnek, ha lehetőség lenne szakértői konzultációra a rendszeren keresztül?"
+    dysfunctional_question: "Mennyire zavarná, ha nem lenne mód szakértői tanács kérésére?"
+
+  - id: 14
+    function: "Kapcsolat okoseszközökkel (pl. vérnyomásmérő, okosóra)"
+    functional_question: "Mennyire lenne elégedett, ha a rendszer képes lenne automatikusan összegyűjteni adatokat az okoseszközeiből?"
+    dysfunctional_question: "Mennyire zavarná, ha a rendszer nem tudna kapcsolódni az egészségügyi eszközeihez?"
+
+  - id: 15
+    function: "Sürgősségi esetek felismerése"
+    functional_question: "Mennyire tartaná fontosnak, ha a rendszer figyelmeztetne, ha állapota sürgős ellátást igényel?"
+    dysfunctional_question: "Mennyire zavarná, ha a rendszer nem tudna sürgős eseteket felismerni?"
+
+  - id: 16
+    function: "Betegút követés (múltbeli és jövőbeli események)"
+    functional_question: "Mennyire lenne elégedett, ha a rendszer segítene áttekinteni az eddigi és a jövőbeli egészségügyi eseményeit?"
+    dysfunctional_question: "Mennyire zavarná, ha nem tudná nyomon követni az egészségügyi eseményeit a rendszerben?"
+
+  - id: 17
+    function: "Nyelvi támogatás és érthető magyarázatok"
+    functional_question: "Mennyire tartaná hasznosnak, ha a rendszer érthető, egyszerű nyelven magyarázná el a kifejezéseket és ajánlásokat?"
+    dysfunctional_question: "Mennyire zavarná, ha a rendszer túl bonyolult vagy szakszavakkal teli válaszokat adna?"
+

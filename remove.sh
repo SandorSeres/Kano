@@ -4,17 +4,28 @@
 set -e
 
 # 1. Beállítások
-PROJECT_ID="kano-456408"
-REGION="us-central1"
-SERVICE_NAME="kano-app"
-IMAGE_NAME="kano-app"
-BUCKET_NAME="kano-responses"
+#PROJECT_ID="kano-456408"
+#REGION="us-central1"
+#SERVICE_NAME="kano-app"
+#IMAGE_NAME="kano-app"
+#BUCKET_NAME="kano-responses"
 
 #PROJECT_ID="prompt-engineering-79711"
 #REGION="us-central1"
 #SERVICE_NAME="kano-app"
 #IMAGE_NAME="kano-app"
 #BUCKET_NAME="prompt_engineering-responses"
+
+#
+# GapHopper
+#
+BUCKET_NAME="gaphopper-responses"
+BUCKET_LOCATION="us-central1"
+APP_NAME="kano-app"
+SERVICE_NAME="kano-app"
+REGION="us-central1"
+PROJECT_ID="kano-app1"
+
 
 # 2. (Opcionális) GCP bejelentkezés és projekt kiválasztása
 echo "Bejelentkezés a Google Cloud SDK-ba..."

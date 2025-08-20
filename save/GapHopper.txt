@@ -1,0 +1,159 @@
+project:
+  - GapHopper Karrier- és Önfejlesztő Platform Kano-elemzés
+
+description: >
+  Ez a kérdőív a Kano-modell alapján segít feltérképezni, hogy a különböző funkciók mennyire fontosak
+  a felhasználók számára, illetve mennyire okozna problémát a hiányuk. A válaszok segítenek a platform
+  továbbfejlesztésében és a prioritások meghatározásában.
+
+questions:
+  - id: 1
+    function: "Személyes fejlődési modulok (20 modul)"
+    functional_question: "Mennyire lenne elégedett, ha 20 strukturált modul segítené személyes és szakmai fejlődését a platformon belül?"
+    dysfunctional_question: "Mennyire zavarná, ha nem lenne strukturált modulrendszer a platformon?"
+
+  - id: 2
+    function: "Progresszió vizuális nyomon követése"
+    functional_question: "Mennyire tartaná értékesnek, ha vizuálisan nyomon követhetné fejlődését és a modulokban elért eredményeit?"
+    dysfunctional_question: "Mennyire zavarná, ha nem követhetné vizuálisan a haladását?"
+
+  - id: 3
+    function: "Önértékelő tesztek (MBTI, RIASEC stb.)"
+    functional_question: "Mennyire lenne elégedett, ha tudományosan alátámasztott személyiség- és érdeklődésfelmérő teszteket végezhetne?"
+    dysfunctional_question: "Mennyire érezné hiányosságnak, ha ezek a tesztek hiányoznának a platformról?"
+
+  - id: 4
+    function: "Learning Agility Index (tanulási agilitás felmérése)"
+    functional_question: "Mennyire tartaná hasznosnak, ha értékelnék tanulási alkalmazkodóképességét és erre fejlesztési tippeket kapna?"
+    dysfunctional_question: "Mennyire zavarná, ha kimaradna a tanulási agilitás felmérése a platformból?"
+
+  - id: 5
+    function: "Értékiránytű (Value compass)"
+    functional_question: "Mennyire lenne elégedett, ha személyes értékeit és azok karrierrel való összefüggését elemezhetné?"
+    dysfunctional_question: "Mennyire okozna hiányérzetet, ha nem lenne lehetőség értékei elemzésére?"
+
+  - id: 6
+    function: "Életkerék (Life wheel)"
+    functional_question: "Mennyire lenne hasznos, ha vizuálisan átlátná életének fontos területeit (karrier, egészség, kapcsolatok)?"
+    dysfunctional_question: "Mennyire zavarná, ha nem lenne vizuális eszköz az élet egyensúlyának értékelésére?"
+
+  - id: 7
+    function: "Napi és heti tervezők"
+    functional_question: "Mennyire tartaná értékesnek, ha napi és heti szinten strukturálhatná céljait és feladatait?"
+    dysfunctional_question: "Mennyire zavarná ezeknek a tervező eszközöknek a hiánya?"
+
+  - id: 8
+    function: "Személyes célok kitűzése és nyomon követése"
+    functional_question: "Mennyire lenne elégedett, ha a platform segítené személyes és szakmai céljainak kitűzését és követését?"
+    dysfunctional_question: "Mennyire zavarná, ha nem lenne lehetőség céljait nyomon követni?"
+
+  - id: 9
+    function: "Karrierút-tervező (Career path builder)"
+    functional_question: "Mennyire tartaná hasznosnak, ha személyre szabott útmutatást kapna a kívánt karrier eléréséhez?"
+    dysfunctional_question: "Mennyire okozna hiányérzetet, ha hiányozna a karrierút-tervező?"
+
+  - id: 10
+    function: "Virtuális munkakörnyezetek és tesztközpont (TestFlight)"
+    functional_question: "Mennyire lenne elégedett, ha interaktív módon próbálhatná ki választott szakmák készségkövetelményeit?"
+    dysfunctional_question: "Mennyire zavarná, ha nem lenne ilyen gyakorlati tesztelési lehetőség a platformon?"
+
+  - id: 11
+    function: "Skill Development Hub (kompetenciafejlesztő központ)"
+    functional_question: "Mennyire tartaná értékesnek, ha a platform strukturált kompetenciafejlesztő tananyagokat kínálna?"
+    dysfunctional_question: "Mennyire zavarná ezeknek a tananyagoknak a hiánya?"
+
+  - id: 12
+    function: "Valós esettanulmányok és üzleti példák"
+    functional_question: "Mennyire lenne elégedett, ha valós vállalati esettanulmányokkal illusztrálnák a tananyagokat?"
+    dysfunctional_question: "Mennyire zavarná, ha nem lennének valós esettanulmányok a platformon?"
+
+  - id: 13
+    function: "Interaktív workshopok és személyes visszajelzés lehetősége"
+    functional_question: "Mennyire tartaná hasznosnak, ha interaktív workshopokon vehetne részt, ahol személyes visszajelzéseket is kapna?"
+    dysfunctional_question: "Mennyire zavarná ezek hiánya?"
+
+  - id: 14
+    function: "Bérinformációk és piaci trendek integrációja"
+    functional_question: "Mennyire lenne elégedett, ha a platform aktuális bérinformációkat és munkaerőpiaci trendeket is bemutatna?"
+    dysfunctional_question: "Mennyire okozna hiányérzetet ezeknek a hiánya?"
+
+  - id: 15
+    function: "Személyre szabott tanúsítvány- és képzésajánló"
+    functional_question: "Mennyire tartaná értékesnek, ha személyre szabott tanúsítványokat és képzéseket ajánlana a platform?"
+    dysfunctional_question: "Mennyire zavarná, ha hiányozna az ajánlórendszer?"
+
+  - id: 16
+    function: "Online és letölthető oktatási anyagok"
+    functional_question: "Mennyire lenne elégedett, ha a platformon keresztül online és letölthető tananyagok állnának rendelkezésére?"
+    dysfunctional_question: "Mennyire zavarná ezek hiánya?"
+
+  - id: 17
+    function: "Félelmek és akadályok azonosítása a karrierutakon"
+    functional_question: "Mennyire tartaná hasznosnak, ha a platform azonosítaná a lehetséges akadályokat és megoldásokat javasolna a karrierútján?"
+    dysfunctional_question: "Mennyire zavarná ennek hiánya?"
+    
+  - id: 18
+    function: "Modulokon belüli konkrét teendők (ToDos)"
+    functional_question: "Mennyire lenne elégedett, ha minden modul részletes, konkrét feladatokat tartalmazna (pl. olvasmány, gyakorlat, önreflexió)?"
+    dysfunctional_question: "Mennyire zavarná, ha nem lennének konkrét feladatok a modulokban?"
+
+  - id: 19
+    function: "Testreszabható napelnevezések a heti tervezőben"
+    functional_question: "Mennyire tartaná vonzónak, ha a heti tervezőben testreszabhatná a napok elnevezéseit (pl. 'Pihenőnap', 'Feltöltődés')?"
+    dysfunctional_question: "Mennyire zavarná, ha ez a testreszabhatóság hiányozna?"
+
+  - id: 20
+    function: "Ismétlődő tevékenységek beállítása (rutinok támogatása)"
+    functional_question: "Mennyire lenne elégedett, ha a napi és heti tervezőben könnyedén beállíthatná az ismétlődő tevékenységeket (pl. meditáció, sport)?"
+    dysfunctional_question: "Mennyire okozna hiányérzetet ennek hiánya?"
+
+  - id: 21
+    function: "Karrierhez kapcsolódó tanúsítványok ajánlása"
+    functional_question: "Mennyire tartaná hasznosnak, ha a platform konkrét tanúsítványokat ajánlana a kiválasztott karriercéljaihoz?"
+    dysfunctional_question: "Mennyire zavarná, ha nem kapna ilyen tanúsítvány-ajánlásokat?"
+
+  - id: 22
+    function: "Munkahelyi környezet előzetes megtekintése"
+    functional_question: "Mennyire tartaná vonzónak, ha virtuálisan betekintést nyerhetne egyes munkahelyi környezetekbe?"
+    dysfunctional_question: "Mennyire zavarná ennek a lehetőségnek a hiánya?"
+
+  - id: 23
+    function: "Céges kapcsolatok ajánlása (potenciális munkáltatók)"
+    functional_question: "Mennyire lenne elégedett, ha a platform kapcsolódási lehetőséget kínálna releváns cégekkel, potenciális munkáltatókkal?"
+    dysfunctional_question: "Mennyire okozna hiányérzetet, ha nem lenne ilyen céges kapcsolatépítési lehetőség?"
+
+  - id: 24
+    function: "Skill Gap elemzés (hiányzó készségek azonosítása)"
+    functional_question: "Mennyire tartaná értékesnek, ha a platform világosan bemutatná, mely készségeiben mutatkozik hiányosság a karriercéljai eléréséhez képest?"
+    dysfunctional_question: "Mennyire zavarná, ha nem lenne ilyen készséghiány-elemzés?"
+
+  - id: 25
+    function: "Negyedéves rövidtávú célkitűzések"
+    functional_question: "Mennyire lenne elégedett, ha a platform negyedéves rövidtávú célok kitűzésére és követésére is lehetőséget nyújtana?"
+    dysfunctional_question: "Mennyire zavarná, ha hiányozna a rövidtávú célok beállításának lehetősége?"
+
+  - id: 26
+    function: "Radar-diagram alapú személyes profilvizualizáció (értékek és kompetenciák)"
+    functional_question: "Mennyire tartaná hasznosnak, ha személyes értékeit és kompetenciáit radar-diagram formájában vizuálisan is átlátná?"
+    dysfunctional_question: "Mennyire okozna hiányérzetet, ha nem lenne ilyen vizuális reprezentáció?"
+
+  - id: 27
+    function: "Letölthető, részletes oktatási segédanyagok és sablonok"
+    functional_question: "Mennyire lenne elégedett, ha minden modulhoz részletes letölthető segédanyagok és sablonok állnának rendelkezésre?"
+    dysfunctional_question: "Mennyire zavarná ezek hiánya?"
+
+  - id: 28
+    function: "Interaktív feladatokhoz kapcsolódó személyes jegyzetelési lehetőség"
+    functional_question: "Mennyire tartaná hasznosnak, ha interaktív feladatok közben saját jegyzeteket is rögzíthetne a platformon belül?"
+    dysfunctional_question: "Mennyire okozna hiányérzetet, ha nem jegyzetelhetne közvetlenül a platformon?"
+
+  - id: 29
+    function: "Karrierblokkoló tényezők és félelmek kezelésére szánt praktikus javaslatok"
+    functional_question: "Mennyire lenne elégedett, ha konkrét, gyakorlati tanácsokat kapna a karrierjét akadályozó félelmek és blokkok leküzdésére?"
+    dysfunctional_question: "Mennyire zavarná, ha nem lennének ilyen tanácsok?"
+
+  - id: 30
+    function: "Platformon belüli mentorálási vagy coaching lehetőség"
+    functional_question: "Mennyire lenne elégedett, ha a platform mentorálási vagy coaching lehetőséget is kínálna személyes fejlődése érdekében?"
+    dysfunctional_question: "Mennyire zavarná, ha nem lenne mentorálási vagy coaching lehetőség a platformon?"
+

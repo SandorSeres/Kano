@@ -9,9 +9,9 @@
   <div class="container mt-5">
     <h1 class="text-center">Válassz projektet!</h1>
     <div class="list-group mt-4">
-      {% for file in config_files %}
-        <a href="/form?project={{ file }}" class="list-group-item list-group-item-action">
-          {{ file }}
+      {% for item in projects %}
+        <a href="/form?project={{ item.filename }}" class="list-group-item list-group-item-action">
+          {{ item.project_name }}
         </a>
       {% endfor %}
     </div>

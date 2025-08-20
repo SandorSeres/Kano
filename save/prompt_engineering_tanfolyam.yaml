@@ -1,5 +1,11 @@
 project:
   - Prompt Engineering Tanfolyam Üzleti és Startup Fókusszal
+description: >
+  <p class="mb-2">
+  Ez a kérdőív a Kano-modell alapján segít feltérképezni, hogy a különböző funkciók mennyire fontosak
+  a felhasználók számára, illetve mennyire okozna problémát a hiányuk. A válaszok segítenek a platform
+  továbbfejlesztésében és a prioritások meghatározásában.
+  </p>
 
 questions:
   - id: 1

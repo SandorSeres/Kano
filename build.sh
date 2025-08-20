@@ -5,7 +5,7 @@ set -e
 
 
 # Itt állíthatod be a régiót és a kívánt bucket, app  nevet.
-BUCKET_NAME="prompt_engineering-responses"
+BUCKET_NAME="haziorvosai-responses"
 BUCKET_LOCATION="us-central1"
 APP_NAME="kano-app"
 SERVICE_NAME="kano-app"
@@ -16,7 +16,7 @@ echo "Bejelentkezés a Google Cloud SDK-ba..."
 gcloud auth login
 
 # 2. Google Cloud projekt beállítása
-PROJECT_ID="prompt-engineering-79711"
+PROJECT_ID="kano-app1"
 echo "Projekt kiválasztása: $PROJECT_ID"
 gcloud config set project "$PROJECT_ID"
 
@@ -74,4 +74,5 @@ echo "Az alkalmazás sikeresen telepítve. Elérhető itt: $URL"
 #   --update-secrets ENV_VAR_NAME=SECRET_NAME:latest
 
 echo "Minden lépés sikeresen lefutott!"
+
 

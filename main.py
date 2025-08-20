@@ -13,9 +13,9 @@ write_lock = asyncio.Lock()
 app = FastAPI()
 templates = Jinja2Templates(directory="templates")
 app.mount("/static", StaticFiles(directory="static"), name="static")
-#BUCKET_NAME = "kano-responses"  # A bucket neve
-BUCKET_NAME = "prompt_engineering-responses"  # A bucket neve
-
+# !!!!!!!!!!!!!!!!!!!!!!!!!!!
+BUCKET_NAME = "kano-responses-kanoapp1"
+# !!!!!!!!!!!!!!!!!!!!!!!!!!
 CONFIG_DIR = "config"  # A YAML fájlok könyvtára
 
 # Funkcionális kérdés mapping – itt a magasabb érték nagyobb elégedettséget jelent
@@ -57,7 +57,16 @@ def verify_admin(username: str = Query(...)):
 @app.get("/", response_class=HTMLResponse)
 async def choose_project(request: Request):
     config_files = list_config_files()
-    return templates.TemplateResponse("choose.html", {"request": request, "config_files": config_files})
+    projects = []
+    for filename in config_files:
+        try:
+            data = load_questions(filename)
+            project_name = data.get("project", ["Névtelen projekt"])[0]
+            projects.append({"filename": filename, "project_name": project_name})
+        except Exception as e:
+            print(f"Hiba a(z) {filename} fájl beolvasásakor: {e}")
+            projects.append({"filename": filename, "project_name": filename})  # fallback
+    return templates.TemplateResponse("choose.html", {"request": request, "projects": projects})
 
 # --- Normál felhasználók űrlap oldala ---
 @app.get("/form", response_class=HTMLResponse)
@@ -67,11 +76,13 @@ async def form_get(request: Request, project: str = None):
     data = load_questions(project)
     questions = data.get("questions", [])
     project_name = data.get("project", ["N/A"])[0]
+    description = data.get("description", "")
     return templates.TemplateResponse("form.html", {
         "request": request,
         "questions": questions,
         "project": project_name,
-        "config_file": project
+        "config_file": project,
+        "description": description
     })
 
 # --- Beküldés ---
@@ -129,13 +140,27 @@ async def submit(request: Request):
     async with write_lock:
         upload_csv_to_gcs(BUCKET_NAME, csv_filename, csv_buffer)
 
-    return RedirectResponse(url="/form?project=" + config_file, status_code=303)
+    return RedirectResponse(url="/thankyou", status_code=303)
+
+@app.get("/thankyou", response_class=HTMLResponse)
+async def thank_you(request: Request):
+    return templates.TemplateResponse("thankyou.html", {"request": request})
+
 
 # --- Admin választóoldala ---
 @app.get("/admin/choose", response_class=HTMLResponse)
 async def admin_choose(request: Request, username: str = Depends(verify_admin)):
     config_files = list_config_files()
-    return templates.TemplateResponse("choose_admin.html", {"request": request, "config_files": config_files})
+    projects = []
+    for filename in config_files:
+        try:
+            data = load_questions(filename)
+            project_name = data.get("project", ["Névtelen projekt"])[0]
+            projects.append({"filename": filename, "project_name": project_name})
+        except Exception as e:
+            print(f"Hiba a(z) {filename} fájl beolvasásakor: {e}")
+            projects.append({"filename": filename, "project_name": filename})  # fallback
+    return templates.TemplateResponse("choose_admin.html", {"request": request, "projects": projects})
 
 # --- Admin értékelési oldal ---
 @app.get("/admin/evaluation", response_class=HTMLResponse)

@@ -12,7 +12,7 @@
         <h1 class="text-center">Admin - Válassz projektet az értékeléshez</h1>
         <div class="list-group mt-4">
           {% for item in projects %}
-          <a href="/admin/evaluation?project={{ item.filename }}&username=admin"
+          <a href="/admin/kano?project={{ item.filename }}&username=admin"
               class="list-group-item list-group-item-action">
               {{ item.project_name }}
           </a>

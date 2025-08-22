@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+  <meta charset="UTF-8">
+  <title>Klasszikus KANO – {{ config_file }}</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    body { background-color: #f8f9fa; }
+    .header { margin-top: 2rem; margin-bottom: 1rem; }
+    .badge-cat { font-weight: 600; }
+    .table-container { margin-top: 1.5rem; }
+    .small-note { font-size: 0.92rem; color: #555; }
+    .mono { font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1 class="text-center header">Klasszikus Kano kiértékelés: {{ config_file }}</h1>
+
+    <div class="alert alert-info mt-3">
+      <strong>Kano kategóriák:</strong><br>
+      <span class="badge bg-danger">M</span> Must-be: alapelvárás, hiánya nagy elégedetlenség.<br>
+      <span class="badge bg-primary">O</span> One-dimensional: teljesítmény faktor, minél jobb, annál elégedettebb.<br>
+      <span class="badge bg-success">A</span> Attractive: extra, „wow” élmény, ha megvan.<br>
+      <span class="badge bg-secondary">I</span> Indifferent: nincs érdemi hatása.<br>
+      <span class="badge bg-warning text-dark">R</span> Reverse: fordított hatás (ha van, rossz).<br>
+      <span class="badge bg-dark">Q</span> Questionable: ellentmondásos válasz.
+    </div>
+
+    <p class="small-note">
+      A táblázat a klasszikus 5×5-ös párosítási táblát használja (A/O/M/I/R/Q), és számolja a Better/Worse indexet is.
+      <br>
+      <strong>Megjegyzés:</strong> jelenleg aggregált becslés készül (páronkénti megfeleltetés helyett), mert a CSV nem tartalmaz <span class="mono">Respondent_ID</span> mezőt.
+    </p>
+
+    <div class="table-container">
+      {% if rows and rows|length > 0 %}
+      <div class="table-responsive">
+        <table class="table table-striped table-bordered align-middle">
+          <thead class="table-dark">
+            <tr class="text-center">
+              <th style="min-width: 110px;">Question ID</th>
+              <th>Funkció</th>
+              <th class="text-center">A</th>
+              <th class="text-center">O</th>
+              <th class="text-center">M</th>
+              <th class="text-center">I</th>
+              <th class="text-center">R</th>
+              <th class="text-center">Q</th>
+              <th class="text-center" style="min-width: 130px;">Domináns</th>
+              <th class="text-center" style="min-width: 120px;">Better</th>
+              <th class="text-center" style="min-width: 120px;">Worse</th>
+              <th class="text-center">Érvényes denom</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for r in rows %}
+            <tr>
+              <td class="mono text-center">{{ r["Question_ID"] }}</td>
+              <td>{{ r["Function"] }}</td>
+              <td class="text-center">{{ r["counts"]["A"] or 0 }}</td>
+              <td class="text-center">{{ r["counts"]["O"] or 0 }}</td>
+              <td class="text-center">{{ r["counts"]["M"] or 0 }}</td>
+              <td class="text-center">{{ r["counts"]["I"] or 0 }}</td>
+              <td class="text-center">{{ r["counts"]["R"] or 0 }}</td>
+              <td class="text-center">{{ r["counts"]["Q"] or 0 }}</td>
+              <td class="text-center">
+                {% if r["dominant"] %}
+                  {% set cat = r["dominant"] %}
+                  {% if cat == "M" %}
+                    <span class="badge bg-danger badge-cat">{{ cat }}</span>
+                  {% elif cat == "O" %}
+                    <span class="badge bg-primary badge-cat">{{ cat }}</span>
+                  {% elif cat == "A" %}
+                    <span class="badge bg-success badge-cat">{{ cat }}</span>
+                  {% elif cat == "I" %}
+                    <span class="badge bg-secondary badge-cat">{{ cat }}</span>
+                  {% elif cat == "R" %}
+                    <span class="badge bg-warning text-dark badge-cat">{{ cat }}</span>
+                  {% elif cat == "Q" %}
+                    <span class="badge bg-dark badge-cat">{{ cat }}</span>
+                  {% else %}
+                    <span class="badge bg-light text-dark badge-cat">{{ cat }}</span>
+                  {% endif %}
+                {% else %}
+                  <span class="text-muted">N/A</span>
+                {% endif %}
+              </td>
+              <td class="text-center">
+                {% if r["better"] is not none %}
+                  {{ "%.2f"|format(r["better"]) }}
+                {% else %} N/A {% endif %}
+              </td>
+              <td class="text-center">
+                {% if r["worse"] is not none %}
+                  {{ "%.2f"|format(r["worse"]) }}
+                {% else %} N/A {% endif %}
+              </td>
+              <td class="text-center">{{ r["denom"] }}</td>
+            </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+      {% else %}
+      <div class="alert alert-warning" role="alert">
+        Nincs kiértékelhető adat.
+      </div>
+      {% endif %}
+    </div>
+
+    <div class="d-flex gap-2 justify-content-center mt-3">
+      <a href="/admin/choose?username=admin" class="btn btn-secondary">Vissza a projekt választóhoz</a>
+      <a href="/admin/evaluation?project={{ config_file }}&username=admin" class="btn btn-outline-primary">Egyszerűsített (átlag+delta) nézet</a>
+    </div>
+
+    <div class="mt-4 small-note">
+      <strong>Képlet:</strong> Better = (A+O)/(A+O+M+I), Worse = −(M+O)/(A+O+M+I).
+    </div>
+  </div>
+</body>
+</html>
+

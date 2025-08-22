@@ -1,0 +1,125 @@
+project:
+  - Háziorvos.ai – Háziorvosi igényfelmérés (KANO modell alapján)
+
+questions:
+  - id: 1
+    function: "Előre kitöltött anamnézis (panaszfelvétel) a beteg érkezése előtt"
+    functional_question: "Mennyire lenne elégedett, ha a rendszer a beteg érkezése előtt strukturált, előre kitöltött anamnézist biztosítana az Ön számára?"
+    dysfunctional_question: "Mennyire zavarná, ha a beteg érkezése előtt nem kapna semmilyen strukturált anamnézist a rendszertől?"
+
+  - id: 2
+    function: "Feldolgozott és kiértékelt dokumentumok automatikus csatolása"
+    functional_question: "Mennyire tartaná hasznosnak, ha a rendszer automatikusan átnézné a csatolt dokumentumokat (leletek, korábbi vizsgálatok) és kiemelné a lényeget?"
+    dysfunctional_question: "Mennyire zavarná, ha a rendszer nem tudná automatikusan értelmezni és összefoglalni a csatolt dokumentumokat?"
+
+  - id: 3
+    function: "AI által javasolt sürgősségi szint és ajánlás"
+    functional_question: "Mennyire lenne elégedett, ha a rendszer egy gyors értékelést adna a tünetek sürgősségi szintjéről és javaslatot fogalmazna meg?"
+    dysfunctional_question: "Mennyire zavarná, ha a rendszer nem fogalmazna meg semmilyen javaslatot vagy sürgősségi értékelést?"
+
+  - id: 4
+    function: "A rendszer NEM ad diagnózist, csak előszűrést végez"
+    functional_question: "Mennyire tartaná megnyugtatónak, ha a rendszer nem diagnosztizálna, csak előszűrést végezne a páciensek adatai alapján?"
+    dysfunctional_question: "Mennyire zavarná, ha a rendszer mégis diagnózist próbálna adni az előszűrés helyett?"
+
+  - id: 5
+    function: "Empatikus kommunikációs stílus a páciens felé"
+    functional_question: "Mennyire lenne elégedett, ha a rendszer empatikus, megnyugtató stílusban kommunikálna a pácienssel?"
+    dysfunctional_question: "Mennyire zavarná, ha a rendszer túlságosan tárgyilagos, gépies hangnemben kommunikálna a pácienssel?"
+
+  - id: 6
+    function: "Kérdés-válasz alapú finomítás (max. 5 kérdés)"
+    functional_question: "Mennyire tartaná hatékonynak, ha a rendszer legfeljebb 5 releváns kérdést tenne fel a pontosabb értékeléshez?"
+    dysfunctional_question: "Mennyire zavarná, ha a rendszer nem tenne fel ilyen tisztázó kérdéseket?"
+
+  - id: 7
+    function: "Helyben futó rendszer (nem küld adatot a felhőbe)"
+    functional_question: "Mennyire növelné bizalmát, ha a rendszer teljes egészében helyben futna, és nem küldene adatot külső szerverekre?"
+    dysfunctional_question: "Mennyire zavarná, ha a rendszer felhőalapú lenne és adatokat továbbítana a feldolgozáshoz?"
+
+  - id: 8
+    function: "Automata triage a váróteremben (előzetes panaszfelvétel a beteg által)"
+    functional_question: "Mennyire lenne hasznos, ha a váróteremben egy AI-alapú automata felvenné a panaszokat a beteggel, mielőtt Önhöz kerül?"
+    dysfunctional_question: "Mennyire zavarná, ha a panaszfelvétel kizárólag Önnél történne, és a beteg nem tudna előzetesen információt rögzíteni?"
+
+  - id: 9
+    function: "Nap végi statisztika: leggyakoribb panaszok, sürgősségi szintek"
+    functional_question: "Mennyire tartaná hasznosnak, ha a rendszer nap végén statisztikát adna a nap során előfordult panaszokról és sürgősségi megoszlásról?"
+    dysfunctional_question: "Mennyire zavarná, ha nem kapna ilyen statisztikai összesítést?"
+
+  - id: 10
+    function: "A rendszer újrahasznosítja a korábbi dokumentációkat (pl. előzmények)"
+    functional_question: "Mennyire tartaná értékesnek, ha a rendszer automatikusan figyelembe venné a beteg korábbi dokumentációját az értékelés során?"
+    dysfunctional_question: "Mennyire zavarná, ha a rendszer minden alkalommal nulláról kezdené az adatfeldolgozást, figyelmen kívül hagyva a korábbi leleteket?"
+
+  - id: 11
+    function: "Strukturált JSON/HL7 kompatibilis kimenet orvosi szoftverekhez"
+    functional_question: "Mennyire tartaná hasznosnak, ha a rendszer strukturált, HL7-kompatibilis formátumban adná át az adatokat az Ön által használt orvosi szoftvereknek?"
+    dysfunctional_question: "Mennyire zavarná, ha az adatokat csak szöveges, nem kompatibilis formában kapná meg?"
+
+  - id: 12
+    function: "Leletfeltöltés (PDF, kép, Word) lehetősége a páciens oldaláról"
+    functional_question: "Mennyire lenne elégedett, ha a páciensek önállóan feltölthetnék a leleteiket az AI rendszer számára?"
+    dysfunctional_question: "Mennyire zavarná, ha a leleteket minden esetben Önnek kellene begyűjtenie a betegtől?"
+
+  - id: 13
+    function: "Betegadatok előtöltése EESZT alapján"
+    functional_question: "Mennyire lenne elégedett, ha a rendszer automatikusan beolvasná a páciens EESZT-ből elérhető korábbi adatait?"
+    dysfunctional_question: "Mennyire zavarná, ha a rendszer nem használná fel a már elérhető EESZT-adatokat?"
+
+  - id: 14
+    function: "Beteg szintű személyre szabás (pl. krónikus betegségek figyelembevétele)"
+    functional_question: "Mennyire tartaná hasznosnak, ha a rendszer figyelembe venné a beteg ismert krónikus betegségeit a válaszadásnál?"
+    dysfunctional_question: "Mennyire zavarná, ha ez a fajta személyre szabás hiányozna?"
+
+  - id: 15
+    function: "Rendszer javaslata: mikor NE kelljen orvoshoz fordulni"
+    functional_question: "Mennyire tartaná hasznosnak, ha a rendszer világosan jelezné, amikor a beteg problémája nem igényel orvosi beavatkozást?"
+    dysfunctional_question: "Mennyire zavarná, ha a rendszer minden esetben orvosi konzultációt javasolna?"
+
+  - id: 16
+    function: "Visszajelzési lehetőség a rendszer válaszaira"
+    functional_question: "Mennyire tartaná fontosnak, ha Ön mint orvos visszajelzést adhatna a rendszer javaslatairól (pl. pontosítás, téves válasz)?"
+    dysfunctional_question: "Mennyire zavarná, ha nem tudna semmilyen visszajelzést adni a rendszer válaszaira?"
+
+  - id: 17
+    function: "Orvosi vs. laikus nyelvezet"
+    functional_question: "Mennyire lenne elégedett, ha a rendszer válaszai orvosi és laikus nyelven is elérhetők lennének (pl. egy kattintással váltható)?"
+    dysfunctional_question: "Mennyire zavarná, ha csak az egyik nyelvezet (orvosi vagy laikus) lenne elérhető?"
+
+  - id: 18
+    function: "Válaszidő 2 percen belül"
+    functional_question: "Mennyire lenne elégedett, ha a rendszer minden választ 2 percen belül megadna, még dokumentumelemzés esetén is?"
+    dysfunctional_question: "Mennyire zavarná, ha 2 percnél tovább tartana a válaszadás?"
+
+  - id: 19
+    function: "Offline használhatóság"
+    functional_question: "Mennyire tartaná hasznosnak, ha a rendszer internetkapcsolat nélkül is használható lenne (offline mód)?"
+    dysfunctional_question: "Mennyire zavarná, ha a rendszer kizárólag online lenne működőképes?"
+
+  - id: 20
+    function: "Automatikus ambuláns lap generálás"
+    functional_question: "Mennyire tartaná értékesnek, ha a rendszer automatikusan előkészítene egy ambuláns lap tervezetet az összegyűjtött adatok alapján?"
+    dysfunctional_question: "Mennyire zavarná, ha teljesen manuálisan kellene megírni minden ambuláns lapot a vizsgálat után?"
+
+  - id: 21
+    function: "Adminisztratív terhek csökkentése"
+    functional_question: "Mennyire lenne elégedett, ha a rendszer érezhetően csökkentené az Ön napi adminisztratív terhelését?"
+    dysfunctional_question: "Mennyire zavarná, ha a rendszer nem segítene a dokumentációs feladatok csökkentésében?"
+
+  - id: 22
+    function: "Felelősségi határok kijelölése"
+    functional_question: "Mennyire fontos Önnek, hogy a rendszer világosan jelezze, mikor kell az orvos döntésére hagyatkozni?"
+    dysfunctional_question: "Mennyire zavarná, ha a rendszer túllépné az orvosi döntés jogkörét?"
+
+  - id: 23
+    function: "Páciens edukáció a válaszadás során"
+    functional_question: "Mennyire tartaná hasznosnak, ha a rendszer edukálná a pácienseket az orvosi döntések hátteréről vagy az AI működéséről?"
+    dysfunctional_question: "Mennyire zavarná, ha a rendszer nem adna semmilyen magyarázatot a válaszok mögötti logikára?"
+
+  - id: 24
+    function: "Rendszeres orvosi validáció és frissítés"
+    functional_question: "Mennyire lenne megnyugtató az Ön számára, ha a rendszer szakértői felülvizsgálaton esne át és rendszeresen frissülne?"
+    dysfunctional_question: "Mennyire zavarná, ha a rendszer nem frissülne rendszeresen vagy nem esne át orvosi auditáláson?"
+
+
